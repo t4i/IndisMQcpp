@@ -432,7 +432,7 @@ inline std::shared_ptr<iMsg> handleCmd(std::shared_ptr<iMsg> &m)
 {
     auto sts = m->fields->Sts();
     std::shared_ptr<iMsg> r;
-    if (sts == schema::Sts::REQ || m->fields->Cmd() == schema::Cmd::READY)
+    if (sts == schema::Sts::REQ)
     {
 
         switch (m->fields->Cmd())
