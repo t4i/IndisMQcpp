@@ -3,7 +3,7 @@
 
 #define V_MAJOR 0
 #define V_MINOR 1
-#include "../schema/IndisMQ_Generated.h"
+#include "../IndisMQSchema/IndisMQ_Generated.h"
 #include "../../flatbuffers/include/flatbuffers/flatbuffers.h"
 #include <unordered_map>
 #include <map>
@@ -32,6 +32,7 @@ struct Msg;
 typedef Msg<schema::Imq> iMsg;
 typedef std::shared_ptr<iMsg> shared_msg;
 typedef std::function<shared_msg(shared_msg&)> Handler;
+bool debug=false;
 inline static std::string newUid( size_t length =16 )
 {
     auto randchar = []() -> char {
