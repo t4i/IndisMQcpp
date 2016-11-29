@@ -3,8 +3,8 @@
 
 #define V_MAJOR 0
 #define V_MINOR 1
-#include "../IndisMQSchema/IndisMQ_Generated.h"
-#include "../../flatbuffers/include/flatbuffers/flatbuffers.h"
+#include "../IndisMQSchema/IndisMQ_generated.h"
+#include "../flatbuffers/include/flatbuffers/flatbuffers.h"
 #include <unordered_map>
 #include <map>
 #include <mutex>
@@ -330,7 +330,7 @@ inline void brokerReplay(iMsg *m,std::function<void(std::string, std::shared_ptr
     if (m->fields->MsgType() == schema::MsgType::CAST)
     {
 
-        sendMult(std::move(r), f);
+        sendMult(r, f);
     }
     else
     {
