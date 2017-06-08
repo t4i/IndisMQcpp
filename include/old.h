@@ -1,10 +1,9 @@
-#ifndef INDIS_RPC_H
-#define INDIS_RPC_H
+
+
 
 #define V_MAJOR 0
 #define V_MINOR 1
-#include "../IndisMQSchema/IndisMQ_generated.h"
-#include "../flatbuffers/include/flatbuffers/flatbuffers.h"
+
 #include <unordered_map>
 #include <map>
 #include <mutex>
@@ -33,20 +32,7 @@ typedef Msg<schema::Imq> iMsg;
 typedef std::shared_ptr<iMsg> shared_msg;
 typedef std::function<shared_msg(shared_msg&)> Handler;
 bool debug=false;
-inline static std::string newUid( size_t length =16 )
-{
-    auto randchar = []() -> char {
-        const char charset[] =
-            "0123456789"
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-            "abcdefghijklmnopqrstuvwxyz";
-        const size_t max_index = (sizeof(charset) - 1);
-        return charset[rand() % max_index];
-    };
-    std::string str(length, 0);
-    std::generate_n(str.begin(), length, randchar);
-    return str;
-}
+
 
 template <class T>
 struct Msg
